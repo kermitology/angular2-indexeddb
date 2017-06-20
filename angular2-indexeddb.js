@@ -28,6 +28,7 @@ var AngularIndexedDB = (function () {
                 reject("IndexedDB error: " + e.target.errorCode);
             };
             request.onupgradeneeded = function (e) {
+                self.dbWrapper.db = request.target;
                 upgradeCallback(e, self.dbWrapper.db);
             };
         });
